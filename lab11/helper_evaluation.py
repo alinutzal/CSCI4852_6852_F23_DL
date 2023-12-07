@@ -51,7 +51,7 @@ def compute_confusion_matrix(model, data_loader, device):
     with torch.no_grad():
 
         for i, data in enumerate(data_loader,0):
-            features, target = data
+            features, targets = data
             features = features.to(device)
             targets = targets
             logits = model(features)
