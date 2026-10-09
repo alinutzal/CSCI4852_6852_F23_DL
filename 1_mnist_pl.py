@@ -9,7 +9,9 @@ from torch.utils.data import DataLoader, random_split
 import wandb
 from lightning.pytorch.loggers import WandbLogger
 
-PATH_DATASETS = os.environ.get("PATH_DATASETS","/users/PLS0129/ysu0053/CSCI4852_6852_F23_DL/data")
+PATH_DATASETS = os.environ.get(
+    "PATH_DATASETS", os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+)
 BATCH_SIZE = 256 if torch.cuda.is_available() else 64
 
 # setting device on GPU if available, else CPU
